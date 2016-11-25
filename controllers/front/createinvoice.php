@@ -6,7 +6,8 @@ class CloudSwipeCreateInvoiceModuleFrontController extends ModuleFrontController
 {
     public function postProcess()
     {
-        \CloudSwipe\CloudSwipe::setSecretKey("sk_store_68b8bfedbea80675fcf1374e");
+        \CloudSwipe\CloudSwipe::setSecretKey(
+            Configuration::get("CLOUDSWIPE_SECRET_KEY"));
 
         $cart = $this->context->cart;
         $currency = Currency::getCurrencyInstance((int)$cart->id_currency);

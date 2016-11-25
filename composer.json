@@ -1,0 +1,31 @@
+{
+    "name": "cloudswipe/cloudswipe-prestashop",
+    "type": "prestashop-module",
+    "description": "Official PrestaShop module for CloudSwipe",
+    "keywords": ["cloudswipe", "api", "ecommerce", "payments", "payment", "module"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joey Beninghove",
+            "email": "joey@cloudswipe.com"
+        }
+    ],
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/cloudswipe/cloudswipe-php"
+      }
+    ],
+    "require": {
+      "php": ">=5.4",
+      "cloudswipe/cloudswipe-php": "dev-master"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "~4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "CloudSwipe\\": "src"
+        }
+    }
+}

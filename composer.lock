@@ -13,16 +13,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudswipe/cloudswipe-php.git",
-                "reference": "e85e05fe6f0c24c5d55d1e39f21c0431ce561861"
+                "reference": "6fc194181938bafa92528d0a8d48a4a0d0270d57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudswipe/cloudswipe-php/zipball/e85e05fe6f0c24c5d55d1e39f21c0431ce561861",
-                "reference": "e85e05fe6f0c24c5d55d1e39f21c0431ce561861",
+                "url": "https://api.github.com/repos/cloudswipe/cloudswipe-php/zipball/6fc194181938bafa92528d0a8d48a4a0d0270d57",
+                "reference": "6fc194181938bafa92528d0a8d48a4a0d0270d57",
                 "shasum": ""
             },
             "require": {
-                "cloudswipe/json-api-php-client": "~0.4",
+                "cloudswipe/json-api-php-client": "~0.5",
                 "php": ">=5.4"
             },
             "require-dev": {
@@ -55,20 +55,20 @@
                 "source": "https://github.com/cloudswipe/cloudswipe-php/tree/master",
                 "issues": "https://github.com/cloudswipe/cloudswipe-php/issues"
             },
-            "time": "2016-11-25 00:37:51"
+            "time": "2016-11-25 23:59:16"
         },
         {
             "name": "cloudswipe/json-api-php-client",
-            "version": "0.4",
+            "version": "0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudswipe/json-api-php-client.git",
-                "reference": "326bf6e0b6954bfc65be62732de9bb30589a2d03"
+                "reference": "5a3be385763cb8bf7792d0277454653b17cc7815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudswipe/json-api-php-client/zipball/326bf6e0b6954bfc65be62732de9bb30589a2d03",
-                "reference": "326bf6e0b6954bfc65be62732de9bb30589a2d03",
+                "url": "https://api.github.com/repos/cloudswipe/json-api-php-client/zipball/5a3be385763cb8bf7792d0277454653b17cc7815",
+                "reference": "5a3be385763cb8bf7792d0277454653b17cc7815",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "client",
                 "json"
             ],
-            "time": "2016-11-24 19:39:25"
+            "time": "2016-11-25 23:54:25"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -456,16 +456,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.2",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443"
+                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/b39c7a5b194f9ed7bd0dd345c751007a41862443",
-                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
+                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
                 "shasum": ""
             },
             "require": {
@@ -499,7 +499,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2016-06-10 07:14:17"
+            "time": "2016-11-25 06:54:22"
         },
         {
             "name": "phpspec/prophecy",

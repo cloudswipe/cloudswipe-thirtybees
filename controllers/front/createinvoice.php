@@ -20,7 +20,7 @@ class CloudSwipeCreateInvoiceModuleFrontController extends ModuleFrontController
             "line_totals" => $this->lineTotalsJSON($cart, $currency)
         ]);
 
-        Tools::redirect("http://joey.cloudswipe.dev/pay/" . $invoice->id);
+        Tools::redirect($invoice->links["pay"]);
     }
 
     private function fullName($object)

@@ -13,7 +13,7 @@
     "repositories": [
       {
         "type": "vcs",
-        "url": "https://github.com/cloudswipe/cloudswipe-php"
+        "url": "git@github.com:cloudswipe/cloudswipe-php.git"
       }
     ],
     "require": {

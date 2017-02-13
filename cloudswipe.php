@@ -8,8 +8,6 @@ if (!defined("_PS_VERSION_")) {
 
 class CloudSwipe extends PaymentModule
 {
-    public $secretKey = "sk_store_68b8bfedbea80675fcf1374e";
-
     public function __construct()
     {
         $this->name = "cloudswipe";

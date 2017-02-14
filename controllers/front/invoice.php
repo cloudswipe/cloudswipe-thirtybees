@@ -2,7 +2,7 @@
 
 include(dirname(__FILE__)."/../../lib/CloudSwipe/CloudSwipe.php");
 
-class CloudSwipeCreateInvoiceModuleFrontController extends ModuleFrontController
+class CloudSwipeInvoiceModuleFrontController extends ModuleFrontController
 {
     public function postProcess()
     {
@@ -22,8 +22,10 @@ class CloudSwipeCreateInvoiceModuleFrontController extends ModuleFrontController
         $invoice = \CloudSwipe\Invoice::create([
             "total" => $psCart->getOrderTotal() * 100,
             "currency" => $psCurrency->iso_code,
-            "ip_address" => "TODO",
-            "return_url" => "http://localhost:8888",
+            "ip_address" => $this->getIpAddress($psCart),
+            "return_url" => $this->context->link->getModuleLink(
+                $this->module->name, "receipt"
+            ),
             "customer" => $customer->toArray(),
             "line_items" => $lineItems->toArray(),
             "line_totals" => $lineTotals->toArray(),
@@ -31,5 +33,16 @@ class CloudSwipeCreateInvoiceModuleFrontController extends ModuleFrontController
         ]);
 
         Tools::redirect($invoice->links["pay"]);
+    }
+
+    private function getIpAddress($psCart)
+    {
+        $psCustomer = new \Customer($psCart->id_customer);
+        $psConnections = $psCustomer->getLastConnections();
+
+        if (count($psConnections) > 0) {
+            $psConnection = $psConnections[0];
+            return $psConnection["ipaddress"];
+        }
     }
 }

@@ -57,8 +57,15 @@ $I->see("Payment");
 $I->selectOption("$section input[name=payment-option]", ["id" => "payment-option-3"]);
 $I->checkOption("$section #conditions-to-approve input[type=checkbox]");
 $I->click("$section #payment-confirmation .btn-primary");
-$I->makeScreenshot("after-payment");
+$I->makeScreenshot("after-payment-method");
 
 $I->amGoingTo("fill out the payment information on CloudSwipe");
 $section = ".cloudswipe";
 $I->see("My Store", ".cloudswipe");
+$I->fillField("$section input[name='payment[credit_card][name]']", "Bud Abbott");
+$I->fillField("$section input[name='payment[credit_card][number]']", "4111111111111111");
+$I->fillField("$section input[name='payment[credit_card][expiration]']", "02/20");
+$I->fillField("$section input[name='payment[credit_card][cvv]']", "123");
+$I->click("$section input[name=commit]");
+$I->see("Your Order Is Confirmed");
+$I->makeScreenshot("after-payment");

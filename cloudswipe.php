@@ -18,7 +18,7 @@ class CloudSwipe extends PaymentModule
             "max" => _PS_VERSION_
         ];
         $this->author = "Joey Beninghove";
-        $this->controllers = ["invoice", "receipt"];
+        $this->controllers = ["invoice", "receipt", "slurp"];
         $this->bootstrap = true;
 
         parent::__construct();

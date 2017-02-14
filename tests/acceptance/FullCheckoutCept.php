@@ -1,8 +1,5 @@
 <?php 
 
-use Codeception\Module\WebDriver;
-use Codeception\Util\ActionSequence;
-
 $I = new AcceptanceTester($scenario);
 $I->wantTo("perform a full checkout process");
 

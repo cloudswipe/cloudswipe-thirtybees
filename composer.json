@@ -13,6 +13,9 @@
   "require": {
     "php": ">=5.4"
   },
+  "require-dev": {
+    "codeception/codeception": ">=2.2"
+  },
   "autoload": {
     "psr-4": {
       "CloudSwipe\\": "src"

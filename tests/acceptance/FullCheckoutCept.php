@@ -58,7 +58,6 @@ $I->makeScreenshot("after-payment-method");
 
 $I->amGoingTo("fill out the payment information on CloudSwipe");
 $section = ".cloudswipe";
-$I->see("My Store", ".cloudswipe");
 $I->fillField("$section input[name='payment[credit_card][name]']", "Bud Abbott");
 $I->fillField("$section input[name='payment[credit_card][number]']", "4111111111111111");
 $I->fillField("$section input[name='payment[credit_card][expiration]']", "02/20");

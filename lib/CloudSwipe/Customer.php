@@ -8,7 +8,7 @@ class Customer
 
     public static function buildFromPsCart($psCart)
     {
-        $customer = new static();
+        $customer = new \CloudSwipe\Customer();
 
         $psCustomer = new \Customer($psCart->id_customer);
         $customer->name = new \CloudSwipe\Name($psCustomer);

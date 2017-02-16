@@ -4,13 +4,18 @@ include(dirname(__FILE__)."/../../lib/CloudSwipe/CloudSwipe.php");
 
 class CloudSwipeInvoiceModuleFrontController extends ModuleFrontController
 {
-    public function postProcess()
+    public function __construct()
     {
-        \CloudSwipe\CloudSwipe::setEnvironment("production");
+        parent::__construct();
+
+        \CloudSwipe\CloudSwipe::setEnvironment("development");
         \CloudSwipe\CloudSwipe::setSecretKey(
             Configuration::get("CLOUDSWIPE_SECRET_KEY")
         );
+    }
 
+    public function postProcess()
+    {
         $psCart = $this->context->cart;
         $psCurrency = Currency::getCurrencyInstance((int)$psCart->id_currency);
 

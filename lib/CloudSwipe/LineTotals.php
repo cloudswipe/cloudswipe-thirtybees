@@ -13,7 +13,7 @@ class LineTotals
 
     public static function buildFromPsCart($psCart)
     {
-        $lineTotals = new static();
+        $lineTotals = new \CloudSwipe\LineTotals();
 
         $psSummary = $psCart->getSummaryDetails();
         $psCurrency = \Currency::getCurrencyInstance((int)$psCart->id_currency);

@@ -15,7 +15,7 @@ class LineItems
 
     public static function buildFromPsCart($psCart)
     {
-        $lineItems = new static();
+        $lineItems = new \CloudSwipe\LineItems();
 
         $psProducts = $psCart->getProducts();
         $psCurrency = \Currency::getCurrencyInstance((int)$psCart->id_currency);

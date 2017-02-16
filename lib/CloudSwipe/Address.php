@@ -9,7 +9,7 @@ class Address
 
     public static function buildFromPsAddress($psAddress)
     {
-        $address = new static();
+        $address = new \CloudSwipe\Address();
 
         $psState = new \State((int)$psAddress->id_state);
         $psCountry = new \Country((int)$psAddress->id_country);

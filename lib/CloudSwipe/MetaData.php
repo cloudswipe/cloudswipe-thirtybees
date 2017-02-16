@@ -13,7 +13,7 @@ class MetaData
 
     public static function buildFromPsCart($psCart)
     {
-        $metaData = new static();
+        $metaData = new \CloudSwipe\MetaData();
 
         $metaData->data["foo"] = "bar";
 

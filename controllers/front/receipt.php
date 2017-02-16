@@ -12,7 +12,7 @@ class CloudSwipeReceiptModuleFrontController extends ModuleFrontController
             die("Missing invoice id");
         }
 
-        \CloudSwipe\CloudSwipe::setEnvironment("development");
+        \CloudSwipe\CloudSwipe::setEnvironment("production");
         \CloudSwipe\CloudSwipe::setSecretKey(
             Configuration::get("CLOUDSWIPE_SECRET_KEY")
         );

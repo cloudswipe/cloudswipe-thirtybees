@@ -6,7 +6,7 @@ class CloudSwipeInvoiceModuleFrontController extends ModuleFrontController
 {
     public function postProcess()
     {
-        \CloudSwipe\CloudSwipe::setEnvironment("development");
+        \CloudSwipe\CloudSwipe::setEnvironment("production");
         \CloudSwipe\CloudSwipe::setSecretKey(
             Configuration::get("CLOUDSWIPE_SECRET_KEY")
         );

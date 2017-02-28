@@ -1,19 +1,7 @@
 <?php
 
-include(dirname(__FILE__)."/../../lib/CloudSwipe/CloudSwipe.php");
-
-class CloudSwipeReceiptModuleFrontController extends ModuleFrontController
+class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontController
 {
-    public function __construct()
-    {
-        parent::__construct();
-
-        \CloudSwipe\CloudSwipe::setEnvironment("development");
-        \CloudSwipe\CloudSwipe::setSecretKey(
-            Configuration::get("CLOUDSWIPE_SECRET_KEY")
-        );
-    }
-
     public function postProcess()
     {
         if (!Tools::getValue("invoice_id")) {
@@ -24,7 +12,7 @@ class CloudSwipeReceiptModuleFrontController extends ModuleFrontController
 
         try {
             $invoice =
-                \CloudSwipe\Invoice::getOne(Tools::getValue("invoice_id"));
+                CloudSwipeInvoice::find(Tools::getValue("invoice_id"));
             $this->module->validateOrder(
                 (int)$this->context->cart->id,
                 (int)Configuration::get("PS_OS_PAYMENT"),

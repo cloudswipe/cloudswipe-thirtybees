@@ -1,10 +1,6 @@
 <?php
 
-namespace CloudSwipe\JsonApiClient;
-
-use GuzzleHttp\Client;
-
-class Http
+class CloudSwipeHttp
 {
     public $client;
 
@@ -13,34 +9,34 @@ class Http
         if ($client)
             $this->client = $client;
         else
-            $this->client = new Client();
+            $this->client = new \GuzzleHttp\Client();
     }
 
     public function post($resource)
     {
         $options = $this->options("POST", $resource);
-        return $this->request("POST", Url::create($resource), $options);
+        return $this->request("POST", CloudSwipeUrl::create($resource), $options);
     }
 
     public function patch($resource)
     {
         $options = $this->options("PATCH", $resource);
-        return $this->request("PATCH", Url::update($resource), $options);
+        return $this->request("PATCH", CloudSwipeUrl::update($resource), $options);
     }
 
     public function delete($resource)
     {
         $options = $this->options("DELETE", $resource);
-        return $this->request("DELETE", Url::delete($resource), $options);
+        return $this->request("DELETE", CloudSwipeUrl::delete($resource), $options);
     }
 
     public function get($resource)
     {
         $options = $this->options("GET", $resource);
         if ($resource->hasId())
-            return $this->request("GET", Url::getOne($resource), $options);
+            return $this->request("GET", CloudSwipeUrl::getOne($resource), $options);
         else
-            return $this->request("GET", Url::getAll($resource), $options);
+            return $this->request("GET", CloudSwipeUrl::getAll($resource), $options);
     }
 
     public function request($method, $url, $options=[])
@@ -54,7 +50,7 @@ class Http
     {
         $class = get_class($resource);
         $options = [
-            "auth" => [$class::$username, $class::$password],
+            "auth" => [CloudSwipe::$secretKey, ""],
             "headers" => [
                 "Accept" => "application/vnd.api+json",
             ]

@@ -1,30 +1,18 @@
 <?php
 
-include(dirname(__FILE__)."/../../lib/CloudSwipe/CloudSwipe.php");
-
-class CloudSwipeInvoiceModuleFrontController extends ModuleFrontController
+class CloudSwipePaymentsInvoiceModuleFrontController extends ModuleFrontController
 {
-    public function __construct()
-    {
-        parent::__construct();
-
-        \CloudSwipe\CloudSwipe::setEnvironment("development");
-        \CloudSwipe\CloudSwipe::setSecretKey(
-            Configuration::get("CLOUDSWIPE_SECRET_KEY")
-        );
-    }
-
     public function postProcess()
     {
         $psCart = $this->context->cart;
         $psCurrency = Currency::getCurrencyInstance((int)$psCart->id_currency);
 
-        $customer = \CloudSwipe\Customer::buildFromPsCart($psCart);
-        $lineItems = \CloudSwipe\LineItems::buildFromPsCart($psCart);
-        $lineTotals = \CloudSwipe\LineTotals::buildFromPsCart($psCart);
-        $metaData = \CloudSwipe\MetaData::buildFromPsCart($psCart);
+        $customer = CloudSwipeCustomer::buildFromPsCart($psCart);
+        $lineItems = CloudSwipeLineItems::buildFromPsCart($psCart);
+        $lineTotals = CloudSwipeLineTotals::buildFromPsCart($psCart);
+        $metaData = CloudSwipeMetaData::buildFromPsCart($psCart);
 
-        $invoice = \CloudSwipe\Invoice::create([
+        $invoice = CloudSwipeInvoice::create([
             "total" => $psCart->getOrderTotal() * 100,
             "currency" => $psCurrency->iso_code,
             "ip_address" => $this->getIpAddress($psCart),
@@ -42,7 +30,7 @@ class CloudSwipeInvoiceModuleFrontController extends ModuleFrontController
 
     private function getIpAddress($psCart)
     {
-        $psCustomer = new \Customer($psCart->id_customer);
+        $psCustomer = new Customer($psCart->id_customer);
         $psConnections = $psCustomer->getLastConnections();
 
         if (count($psConnections) > 0) {

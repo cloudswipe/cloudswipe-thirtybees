@@ -1,8 +1,6 @@
 <?php
 
-namespace CloudSwipe\JsonApiClient;
-
-class Url
+class CloudSwipeUrl
 {
     public static function getOne($resource)
     {

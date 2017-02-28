@@ -1,8 +1,6 @@
 <?php
 
-namespace CloudSwipe;
-
-class LineTotals
+class CloudSwipeLineTotals
 {
     public $rows;
 
@@ -13,24 +11,24 @@ class LineTotals
 
     public static function buildFromPsCart($psCart)
     {
-        $lineTotals = new \CloudSwipe\LineTotals();
+        $lineTotals = new self();
 
         $psSummary = $psCart->getSummaryDetails();
-        $psCurrency = \Currency::getCurrencyInstance((int)$psCart->id_currency);
+        $psCurrency = Currency::getCurrencyInstance((int)$psCart->id_currency);
 
         $lineTotals->rows[] = [
             "Discount",
-            \Tools::displayPrice($psSummary["total_discounts"], $psCurrency)
+            Tools::displayPrice($psSummary["total_discounts"], $psCurrency)
         ];
 
         $lineTotals->rows[] = [
             "Shipping",
-            \Tools::displayPrice($psSummary["total_shipping"], $psCurrency)
+            Tools::displayPrice($psSummary["total_shipping"], $psCurrency)
         ];
 
         $lineTotals->rows[] = [
             "Tax",
-            \Tools::displayPrice($psSummary["total_tax"], $psCurrency)
+            Tools::displayPrice($psSummary["total_tax"], $psCurrency)
         ];
 
         return $lineTotals;

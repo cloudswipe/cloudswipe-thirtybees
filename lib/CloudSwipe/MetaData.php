@@ -1,8 +1,6 @@
 <?php
 
-namespace CloudSwipe;
-
-class MetaData
+class CloudSwipeMetaData
 {
     public $data;
 
@@ -13,7 +11,7 @@ class MetaData
 
     public static function buildFromPsCart($psCart)
     {
-        $metaData = new \CloudSwipe\MetaData();
+        $metaData = new self();
 
         $metaData->data["foo"] = "bar";
 

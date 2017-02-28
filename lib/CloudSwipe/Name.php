@@ -1,8 +1,6 @@
 <?php
 
-namespace CloudSwipe;
-
-class Name
+class CloudSwipeName
 {
     public $firstName, $lastName;
 

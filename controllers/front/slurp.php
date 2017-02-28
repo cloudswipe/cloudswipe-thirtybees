@@ -1,11 +1,11 @@
 <?php
 
-class CloudSwipeSlurpModuleFrontController extends ModuleFrontController
+class CloudSwipePaymentsSlurpModuleFrontController extends ModuleFrontController
 {
     public function initContent()
     {
         parent::initContent();
 
-        $this->setTemplate("module:cloudswipe/views/templates/front/slurp.tpl");
+        $this->setTemplate("module:cloudswipepayments/views/templates/front/slurp.tpl");
     }
 }

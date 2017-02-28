@@ -1,20 +1,18 @@
 <?php
 
-namespace CloudSwipe;
-
-class Address
+class CloudSwipeAddress
 {
     public $name, $company, $line1, $line2,
         $city, $state, $zip, $country, $phone;
 
     public static function buildFromPsAddress($psAddress)
     {
-        $address = new \CloudSwipe\Address();
+        $address = new self();
 
-        $psState = new \State((int)$psAddress->id_state);
-        $psCountry = new \Country((int)$psAddress->id_country);
+        $psState = new State((int)$psAddress->id_state);
+        $psCountry = new Country((int)$psAddress->id_country);
 
-        $address->name = new \CloudSwipe\Name($psAddress);
+        $address->name = new CloudSwipeName($psAddress);
         $address->company = $psAddress->company;
         $address->line1 = $psAddress->address1;
         $address->line2 = $psAddress->address2;

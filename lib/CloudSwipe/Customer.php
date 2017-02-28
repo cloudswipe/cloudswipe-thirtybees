@@ -1,23 +1,21 @@
 <?php
 
-namespace CloudSwipe;
-
-class Customer
+class CloudSwipeCustomer
 {
     public $name, $email, $billingAddress, $shippingAddress;
 
     public static function buildFromPsCart($psCart)
     {
-        $customer = new \CloudSwipe\Customer();
+        $customer = new self();
 
-        $psCustomer = new \Customer($psCart->id_customer);
-        $customer->name = new \CloudSwipe\Name($psCustomer);
+        $psCustomer = new Customer($psCart->id_customer);
+        $customer->name = new CloudSwipeName($psCustomer);
         $customer->email = $psCustomer->email;
-        $customer->billingAddress = \CloudSwipe\Address::buildFromPsAddress(
-            new \Address((int)$psCart->id_address_invoice)
+        $customer->billingAddress = CloudSwipeAddress::buildFromPsAddress(
+            new Address((int)$psCart->id_address_invoice)
         );
-        $customer->shippingAddress = \CloudSwipe\Address::buildFromPsAddress(
-            new \Address((int)$psCart->id_address_delivery)
+        $customer->shippingAddress = CloudSwipeAddress::buildFromPsAddress(
+            new Address((int)$psCart->id_address_delivery)
         );
 
         return $customer;

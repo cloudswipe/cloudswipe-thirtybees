@@ -1,8 +1,6 @@
 <?php
 
-namespace CloudSwipe;
-
-class LineItems
+class CloudSwipeLineItems
 {
     public $headers, $rows;
 
@@ -15,10 +13,10 @@ class LineItems
 
     public static function buildFromPsCart($psCart)
     {
-        $lineItems = new \CloudSwipe\LineItems();
+        $lineItems = new self();
 
         $psProducts = $psCart->getProducts();
-        $psCurrency = \Currency::getCurrencyInstance((int)$psCart->id_currency);
+        $psCurrency = Currency::getCurrencyInstance((int)$psCart->id_currency);
 
         foreach ($psProducts as $psProduct) {
             $lineItems->rows[] = self::buildLineItemRow($psProduct, $psCurrency);
@@ -40,9 +38,9 @@ class LineItems
         return [
             $psProduct["name"],
             $psProduct["attributes_small"],
-            \Tools::displayPrice($psProduct["price"], $psCurrency),
+            Tools::displayPrice($psProduct["price"], $psCurrency),
             $psProduct["cart_quantity"],
-            \Tools::displayPrice($psProduct["total"], $psCurrency)
+            Tools::displayPrice($psProduct["total"], $psCurrency)
         ];
     }
 }

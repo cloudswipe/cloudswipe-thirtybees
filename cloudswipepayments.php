@@ -1,16 +1,18 @@
 <?php
 
+require_once(dirname(__FILE__)."/lib/CloudSwipe.php");
+
 use PrestaShop\PrestaShop\Core\Payment\PaymentOption;
 
 if (!defined("_PS_VERSION_")) {
     exit;
 }
 
-class CloudSwipe extends PaymentModule
+class CloudSwipePayments extends PaymentModule
 {
     public function __construct()
     {
-        $this->name = "cloudswipe";
+        $this->name = "cloudswipepayments";
         $this->tab = "payments_gateways";
         $this->version = "1.0.0";
         $this->ps_versions_compliancy = [
@@ -23,8 +25,11 @@ class CloudSwipe extends PaymentModule
 
         parent::__construct();
 
-        $this->displayName = $this->l("CloudSwipe");
+        $this->displayName = $this->l("CloudSwipe Payments");
         $this->description = $this->l("Accepts payments through CloudSwipe");
+
+        CloudSwipe::setEnvironment("development");
+        CloudSwipe::setSecretKey(Configuration::get("CLOUDSWIPE_SECRET_KEY"));
     }
 
     public function install()

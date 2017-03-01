@@ -22,9 +22,9 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 *
-* @author Joey Beninghove
+* @author    Joey Beninghove
 * @copyright 2017 CloudSwipe
-* @license https://opensource.org/licenses/MIT MIT
+* @license   https://opensource.org/licenses/MIT MIT
 */
 
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -34,5 +34,5 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-header("Location: ../");
+header("Location: ../../");
 exit;

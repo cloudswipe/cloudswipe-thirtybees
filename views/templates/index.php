@@ -27,26 +27,12 @@
 * @license https://opensource.org/licenses/MIT MIT
 */
 
-class CloudSwipeMetaData
-{
-    public $data;
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
 
-    public function __construct()
-    {
-        $this->data = [];
-    }
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 
-    public static function buildFromPsCart($psCart)
-    {
-        $metaData = new self();
-
-        $metaData->data["foo"] = "bar";
-
-        return $metaData;
-    }
-
-    public function toArray()
-    {
-        return $this->data;
-    }
-}
+header("Location: ../../../");
+exit;

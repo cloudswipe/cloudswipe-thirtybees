@@ -44,7 +44,8 @@ class CloudSwipePaymentsInvoiceModuleFrontController extends ModuleFrontControll
             "currency" => $psCurrency->iso_code,
             "ip_address" => $this->getIpAddress($psCart),
             "return_url" => $this->context->link->getModuleLink(
-                $this->module->name, "receipt"
+                $this->module->name,
+                "receipt"
             ),
             "customer" => $customer->toArray(),
             "line_items" => $lineItems->toArray(),

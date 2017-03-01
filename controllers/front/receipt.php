@@ -33,7 +33,13 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
     {
         if (!Tools::getValue("invoice_id")) {
             PrestaShopLogger::addLog(
-                "Missing invoice id", 3, null, null, null, true);
+                "Missing invoice id",
+                3,
+                null,
+                null,
+                null,
+                true
+            );
             die("Missing invoice id");
         }
 
@@ -53,15 +59,18 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
             );
 
             Tools::redirect(
-                $this->context->link->getPagelink("order-confirmation.php",
-                null, null,
-                [
-                    "id_cart" => (int)$this->context->cart->id,
-                    "id_module" => (int)$this->module->id,
-                    "id_order" => (int)$this->module->currentOrder,
-                    "key" => $this->context->customer->secure_key
-                ]
-            ));
+                $this->context->link->getPagelink(
+                    "order-confirmation.php",
+                    null,
+                    null,
+                    [
+                        "id_cart" => (int)$this->context->cart->id,
+                        "id_module" => (int)$this->module->id,
+                        "id_order" => (int)$this->module->currentOrder,
+                        "key" => $this->context->customer->secure_key
+                    ]
+                )
+            );
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             if ($e->hasResponse()) {
                 PrestaShopLogger::addLog(

@@ -74,7 +74,10 @@ class CloudSwipePayments extends PaymentModule
         }
 
         $link = $this->context->link->getModuleLink(
-            $this->name, "invoice", [], true
+            $this->name,
+            "invoice",
+            [],
+            true
         );
 
         $option = new PrestaShop\PrestaShop\Core\Payment\PaymentOption();
@@ -88,18 +91,19 @@ class CloudSwipePayments extends PaymentModule
     {
         $output = null;
 
-        if (Tools::isSubmit("submit".$this->name))
-        {
+        if (Tools::isSubmit("submit".$this->name)) {
             $secretKey = (string) Tools::getValue("CLOUDSWIPE_SECRET_KEY");
             if (!$secretKey
                 || empty($secretKey)
-                || !Validate::isGenericName($secretKey))
+                || !Validate::isGenericName($secretKey)) {
                 $output .= $this->displayError($this->l("Invalid Secret Key"));
+            }
             else
             {
                 Configuration::updateValue("CLOUDSWIPE_SECRET_KEY", $secretKey);
                 $output .= $this->displayConfirmation(
-                    $this->l("Settings updated"));
+                    $this->l("Settings updated")
+                );
             }
         }
         return $output.$this->displayForm();

@@ -22,9 +22,9 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 *
-*    @author Joey Beninghove
-*    @copyright 2017 CloudSwipe
-*    @license https://opensource.org/licenses/MIT MIT
+* @author    Joey Beninghove
+* @copyright    2017 CloudSwipe
+* @license    https://opensource.org/licenses/MIT MIT
 */
 
 class CloudSwipePaymentsInvoiceModuleFrontController extends ModuleFrontController

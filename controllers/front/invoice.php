@@ -23,8 +23,8 @@
 * SOFTWARE.
 *
 * @author    Joey Beninghove
-* @copyright    2017 CloudSwipe
-* @license    https://opensource.org/licenses/MIT MIT
+* @copyright 2017 CloudSwipe
+* @license   https://opensource.org/licenses/MIT MIT
 */
 
 class CloudSwipePaymentsInvoiceModuleFrontController extends ModuleFrontController

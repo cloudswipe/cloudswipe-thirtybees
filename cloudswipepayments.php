@@ -27,8 +27,6 @@
 * @license   https://opensource.org/licenses/MIT MIT
 */
 
-require_once(dirname(__FILE__)."/lib/CloudSwipe.php");
-
 if (!defined("_PS_VERSION_")) {
     exit;
 }
@@ -42,8 +40,7 @@ class CloudSwipePayments extends PaymentModule
         $this->version = "1.0.0";
         $this->ps_versions_compliancy = [
             "min" => "1.7",
-            "max" => _PS_VERSION_
-        ];
+            "max" => _PS_VERSION_ ];
         $this->author = "Joey Beninghove";
         $this->controllers = ["invoice", "receipt", "slurp"];
         $this->bootstrap = true;
@@ -53,6 +50,7 @@ class CloudSwipePayments extends PaymentModule
         $this->displayName = $this->l("CloudSwipe Payments");
         $this->description = $this->l("Accepts payments through CloudSwipe");
 
+        require_once(dirname(__FILE__)."/lib/CloudSwipe.php");
         CloudSwipe::setEnvironment("development");
         CloudSwipe::setSecretKey(Configuration::get("CLOUDSWIPE_SECRET_KEY"));
     }

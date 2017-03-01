@@ -87,7 +87,13 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
                 }
             } else {
                 PrestaShopLogger::addLog(
-                    $e->getMessage(), 3, null, null, null, true);
+                    $e->getMessage(),
+                    3,
+                    null,
+                    null,
+                    null,
+                    true
+                );
             }
 
             die($e->getMessage());

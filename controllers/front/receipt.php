@@ -74,8 +74,13 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             if ($e->hasResponse()) {
                 PrestaShopLogger::addLog(
-                    $e->getMessage(), 3, $e->getResponse()->getStatusCode(),
-                    null, null, true);
+                    $e->getMessage(),
+                    3,
+                    $e->getResponse()->getStatusCode(),
+                    null,
+                    null,
+                    true
+                );
                 if ($e->getResponse()->getStatusCode() == 404) {
                     $invoiceId = Tools::getValue("invoice_id");
                     die("Invoice {$invoiceId} not found");

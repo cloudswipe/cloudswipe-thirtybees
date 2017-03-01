@@ -98,8 +98,7 @@ class CloudSwipePayments extends PaymentModule
                 || !Validate::isGenericName($secretKey)) {
                 $output .= $this->displayError($this->l("Invalid Secret Key"));
             }
-            else
-            {
+            else {
                 Configuration::updateValue("CLOUDSWIPE_SECRET_KEY", $secretKey);
                 $output .= $this->displayConfirmation(
                     $this->l("Settings updated")

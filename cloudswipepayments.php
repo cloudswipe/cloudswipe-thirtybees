@@ -51,7 +51,7 @@ class CloudSwipePayments extends PaymentModule
         $this->description = $this->l("Accepts payments through CloudSwipe");
 
         require_once(dirname(__FILE__)."/lib/CloudSwipe.php");
-        CloudSwipe::setEnvironment("development");
+        CloudSwipe::setEnvironment("staging");
         CloudSwipe::setSecretKey(Configuration::get("CLOUDSWIPE_SECRET_KEY"));
     }
 

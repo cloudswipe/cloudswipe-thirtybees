@@ -41,7 +41,7 @@ class CloudSwipePayments extends PaymentModule
         $this->ps_versions_compliancy = [
             "min" => "1.7",
             "max" => _PS_VERSION_ ];
-        $this->author = "Joey Beninghove";
+        $this->author = "CloudSwipe";
         $this->controllers = ["invoice", "receipt", "slurp"];
         $this->bootstrap = true;
 

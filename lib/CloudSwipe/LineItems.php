@@ -62,12 +62,21 @@ class CloudSwipeLineItems
 
     private static function buildLineItemRow($psProduct, $psCurrency)
     {
-        return [
-            $psProduct["name"],
-            $psProduct["attributes_small"],
-            Tools::displayPrice($psProduct["price"], $psCurrency),
-            $psProduct["cart_quantity"],
-            Tools::displayPrice($psProduct["total"], $psCurrency)
-        ];
+        $row = [];
+
+        $row[] = $psProduct["name"];
+
+        if ($psProduct["attributes_small"]) {
+            $row[] = $psProduct["attributes_small"];
+        } else {
+            $row[] = "N/A";
+        }
+
+        $row[] = $psProduct["attributes_small"];
+        $row[] = Tools::displayPrice($psProduct["price"], $psCurrency);
+        $row[] = $psProduct["cart_quantity"];
+        $row[] = Tools::displayPrice($psProduct["total"], $psCurrency);
+
+        return $row;
     }
 }

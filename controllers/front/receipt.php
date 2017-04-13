@@ -46,17 +46,32 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
         try {
             $invoice =
                 CloudSwipeInvoice::find(Tools::getValue("invoice_id"));
+
+            if ($invoice->attributes["metadata"]["order_id"]) {
+                die("A PrestaShop order has already been created for this invoice.");
+            }
+
             $this->module->validateOrder(
                 (int)$this->context->cart->id,
                 (int)Configuration::get("PS_OS_PAYMENT"),
                 $invoice->attributes["total"] / 100,
                 "Credit Card",
-                "some message",
+                null,
                 [],
                 null,
                 false,
                 $this->context->customer->secure_key
             );
+
+            $order_id = Order::getOrderByCartId($this->context->cart->id);
+            if ($order_id) {
+                $invoice->update([
+                    "metadata" => [
+                        "cart_id" => $this->context->cart->id,
+                        "order_id" => (int)$order_id
+                    ]
+                ]);
+            }
 
             Tools::redirect(
                 $this->context->link->getPagelink(

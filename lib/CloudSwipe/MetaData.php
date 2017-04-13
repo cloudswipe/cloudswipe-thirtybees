@@ -40,7 +40,7 @@ class CloudSwipeMetaData
     {
         $metaData = new self();
 
-        $metaData->data["foo"] = "bar";
+        $metaData->data["cart_id"] = $psCart->id;
 
         return $metaData;
     }

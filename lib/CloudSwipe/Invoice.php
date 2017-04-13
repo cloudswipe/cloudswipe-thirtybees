@@ -65,4 +65,14 @@ class CloudSwipeInvoice extends CloudSwipeResource
         $invoice->links = $json["links"];
         return $invoice;
     }
+
+    public function update($attributes=[])
+    {
+        $http = new CloudSwipeHttp();
+        $this->attributes = $attributes;
+        $response = $http->patch($this);
+        $json = json_decode($response->getBody(), true);
+
+        return CloudSwipeInvoice::load($json);
+    }
 }

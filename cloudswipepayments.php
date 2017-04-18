@@ -47,8 +47,7 @@ class CloudSwipePayments extends PaymentModule
 
         $this->module_key = "b070eebc9aa650797615a0a9b5598108";
         $this->displayName = $this->l("CloudSwipe Payments");
-        $this->description = $this->l(
-            "PCI compliant hosted payments with support for a growing list of payment gateways.");
+        $this->description = $this->l("PCI compliant hosted payments with support for a growing list of payment gateways.");
 
         require_once(dirname(__FILE__)."/lib/CloudSwipe.php");
         CloudSwipe::setEnvironment("production");

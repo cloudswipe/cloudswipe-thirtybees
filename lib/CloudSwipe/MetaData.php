@@ -33,7 +33,7 @@ class CloudSwipeMetaData
 
     public function __construct()
     {
-        $this->data = [];
+        $this->data = array();
     }
 
     public static function buildFromPsCart($psCart)

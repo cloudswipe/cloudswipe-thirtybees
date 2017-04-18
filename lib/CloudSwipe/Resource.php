@@ -32,8 +32,8 @@ class CloudSwipeResource
     public $id;
     public $type;
     public $baseUrl;
-    public $attributes = [];
-    public $links = [];
+    public $attributes = array();
+    public $links = array();
 
     public function __construct($type)
     {
@@ -48,7 +48,7 @@ class CloudSwipeResource
 
     public function toArray()
     {
-        $array = [];
+        $array = array();
 
         if ($this->id)
             $array["data"]["id"] = $this->id;

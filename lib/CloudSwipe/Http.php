@@ -76,12 +76,10 @@ class CloudSwipeHttp
     public function options($method, $resource)
     {
         $class = get_class($resource);
-        $options = [
-            "auth" => [CloudSwipe::$secretKey, ""],
-            "headers" => [
-                "Accept" => "application/vnd.api+json",
-            ]
-        ];
+        $options = array(
+            "auth" => array(CloudSwipe::$secretKey, ""),
+            "headers" => array("Accept" => "application/vnd.api+json")
+        );
 
         switch ($method) {
         case "POST":

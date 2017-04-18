@@ -54,7 +54,7 @@ class CloudSwipeAddress
 
     public function toArray()
     {
-        return [
+        return array(
             "name" => $this->name->toString(),
             "company" => $this->company,
             "line1" => $this->line1,
@@ -64,6 +64,6 @@ class CloudSwipeAddress
             "zip" => $this->zip,
             "country" => $this->country,
             "phone" => $this->phone
-        ];
+        );
     }
 }

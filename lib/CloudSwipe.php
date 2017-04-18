@@ -31,11 +31,11 @@ class CloudSwipe
 {
     public static $secretKey;
     public static $environment = "production";
-    public static $urls = [
+    public static $urls = array(
         "production" => "https://api.cloudswipe.com/v1/",
         "staging" => "https://api.southchicken.com/v1/",
         "development" => "http://api.cloudswipe.dev/v1/"
-    ];
+    );
 
     public static function url()
     {

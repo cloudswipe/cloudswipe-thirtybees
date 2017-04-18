@@ -34,7 +34,7 @@ class CloudSwipeInvoice extends CloudSwipeResource
         parent::__construct("invoices");
     }
 
-    public static function create($attributes=[])
+    public static function create($attributes=array())
     {
         $invoice = new self();
         $invoice->attributes = $attributes;
@@ -66,7 +66,7 @@ class CloudSwipeInvoice extends CloudSwipeResource
         return $invoice;
     }
 
-    public function update($attributes=[])
+    public function update($attributes=array())
     {
         $http = new CloudSwipeHttp();
         $this->attributes = $attributes;

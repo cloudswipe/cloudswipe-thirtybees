@@ -44,6 +44,6 @@ class CloudSwipeName
 
     public function __toString()
     {
-        return implode(" ", [$this->firstName, $this->lastName]);
+        return implode(" ", array($this->firstName, $this->lastName));
     }
 }

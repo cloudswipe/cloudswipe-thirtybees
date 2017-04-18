@@ -39,7 +39,7 @@ class CloudSwipePaymentsInvoiceModuleFrontController extends ModuleFrontControll
         $lineTotals = CloudSwipeLineTotals::buildFromPsCart($psCart);
         $metaData = CloudSwipeMetaData::buildFromPsCart($psCart);
 
-        $invoice = CloudSwipeInvoice::create([
+        $invoice = CloudSwipeInvoice::create(array(
             "total" => $psCart->getOrderTotal() * 100,
             "currency" => $psCurrency->iso_code,
             "ip_address" => $this->getIpAddress($psCart),
@@ -51,7 +51,7 @@ class CloudSwipePaymentsInvoiceModuleFrontController extends ModuleFrontControll
             "line_items" => $lineItems->toArray(),
             "line_totals" => $lineTotals->toArray(),
             "metadata" => $metaData->toArray()
-        ]);
+        ));
 
         Tools::redirect($invoice->links["pay"]);
     }

@@ -38,17 +38,16 @@ class CloudSwipePayments extends PaymentModule
         $this->name = "cloudswipepayments";
         $this->tab = "payments_gateways";
         $this->version = "1.0.0";
-        $this->ps_versions_compliancy = [
-            "min" => "1.7",
-            "max" => _PS_VERSION_ ];
+        $this->ps_versions_compliancy = array("min" => "1.7", "max" => _PS_VERSION_);
         $this->author = "CloudSwipe";
-        $this->controllers = ["invoice", "receipt", "slurp"];
+        $this->controllers = array("invoice", "receipt", "slurp");
         $this->bootstrap = true;
 
         parent::__construct();
 
+        $this->module_key = "b070eebc9aa650797615a0a9b5598108";
         $this->displayName = $this->l("CloudSwipe Payments");
-        $this->description = $this->l("Accepts payments through CloudSwipe");
+        $this->description = $this->l("PCI compliant hosted payments with support for a growing list of payment gateways.");
 
         require_once(dirname(__FILE__)."/lib/CloudSwipe.php");
         CloudSwipe::setEnvironment("production");
@@ -74,7 +73,7 @@ class CloudSwipePayments extends PaymentModule
         $link = $this->context->link->getModuleLink(
             $this->name,
             "invoice",
-            [],
+            array(),
             true
         );
 
@@ -111,7 +110,7 @@ class CloudSwipePayments extends PaymentModule
         $default_lang = (int) Configuration::get("PS_LANG_DEFAULT");
 
         // Init Fields form array
-        $fields_form = [];
+        $fields_form = array();
         $fields_form[0]["form"] = array(
             "legend" => array(
                 "title" => $this->l("Settings"),

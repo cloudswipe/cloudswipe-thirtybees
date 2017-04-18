@@ -34,8 +34,8 @@ class CloudSwipeLineItems
     public function __construct()
     {
         $this->headers =
-            ["Item", "Description", "Unit Price", "Quantity", "Total"];
-        $this->rows = [];
+            array("Item", "Description", "Unit Price", "Quantity", "Total");
+        $this->rows = array();
     }
 
     public static function buildFromPsCart($psCart)
@@ -54,15 +54,15 @@ class CloudSwipeLineItems
 
     public function toArray()
     {
-        return [
+        return array(
             "header" => $this->headers,
             "rows" => $this->rows
-        ];
+        );
     }
 
     private static function buildLineItemRow($psProduct, $psCurrency)
     {
-        $row = [];
+        $row = array();
 
         $row[] = $psProduct["name"];
 

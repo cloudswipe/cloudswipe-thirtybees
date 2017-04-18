@@ -33,7 +33,7 @@ class CloudSwipeLineTotals
 
     public function __construct()
     {
-        $this->rows = [];
+        $this->rows = array();
     }
 
     public static function buildFromPsCart($psCart)
@@ -43,28 +43,26 @@ class CloudSwipeLineTotals
         $psSummary = $psCart->getSummaryDetails();
         $psCurrency = Currency::getCurrencyInstance((int)$psCart->id_currency);
 
-        $lineTotals->rows[] = [
+        $lineTotals->rows[] = array(
             "Discount",
             Tools::displayPrice($psSummary["total_discounts"], $psCurrency)
-        ];
+        );
 
-        $lineTotals->rows[] = [
+        $lineTotals->rows[] = array(
             "Shipping",
             Tools::displayPrice($psSummary["total_shipping"], $psCurrency)
-        ];
+        );
 
-        $lineTotals->rows[] = [
+        $lineTotals->rows[] = array(
             "Tax",
             Tools::displayPrice($psSummary["total_tax"], $psCurrency)
-        ];
+        );
 
         return $lineTotals;
     }
 
     public function toArray()
     {
-        return [
-            "rows" => $this->rows
-        ];
+        return array("rows" => $this->rows);
     }
 }

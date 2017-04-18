@@ -57,7 +57,7 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
                 $invoice->attributes["total"] / 100,
                 "Credit Card",
                 null,
-                [],
+                array(),
                 null,
                 false,
                 $this->context->customer->secure_key
@@ -65,12 +65,12 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
 
             $order_id = Order::getOrderByCartId($this->context->cart->id);
             if ($order_id) {
-                $invoice->update([
-                    "metadata" => [
+                $invoice->update(array(
+                    "metadata" => array(
                         "cart_id" => $this->context->cart->id,
                         "order_id" => (int)$order_id
-                    ]
-                ]);
+                    )
+                ));
             }
 
             Tools::redirect(
@@ -78,12 +78,12 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
                     "order-confirmation.php",
                     null,
                     null,
-                    [
+                    array(
                         "id_cart" => (int)$this->context->cart->id,
                         "id_module" => (int)$this->module->id,
                         "id_order" => (int)$this->module->currentOrder,
                         "key" => $this->context->customer->secure_key
-                    ]
+                    )
                 )
             );
         } catch (\GuzzleHttp\Exception\RequestException $e) {

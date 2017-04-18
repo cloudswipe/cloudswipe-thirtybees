@@ -50,11 +50,11 @@ class CloudSwipeCustomer
 
     public function toArray()
     {
-        return [
+        return array(
             "name" => $this->name->toString(),
             "email" => $this->email,
             "billing_address" => $this->billingAddress->toArray(),
             "shipping_address" => $this->shippingAddress->toArray()
-        ];
+        );
     }
 }

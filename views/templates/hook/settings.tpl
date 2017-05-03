@@ -1,4 +1,4 @@
-/**
+{**
 * The MIT License (MIT)
 * 
 * Copyright (c) 2017 CloudSwipe
@@ -24,7 +24,7 @@
 * @author Joey Beninghove
 * @copyright 2017 CloudSwipe
 * @license https://opensource.org/licenses/MIT MIT
-*/
+*}
 
 <link href="{$module_dir|escape}views/css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -143,7 +143,7 @@
     </div>
   </div>
 
-  <form action="{$request_uri|escape:'UTF-8'}" method="post">
+  <form action="{$request_uri}" method="post">
     <div class="row">
       <div class="form-group col-md-4">
         <label for="cloudswipe_secret_key" class="control-label">Secret Key</label>

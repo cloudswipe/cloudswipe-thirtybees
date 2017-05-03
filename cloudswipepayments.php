@@ -37,7 +37,7 @@ class CloudSwipePayments extends PaymentModule
     {
         $this->name = "cloudswipepayments";
         $this->tab = "payments_gateways";
-        $this->version = "1.0.0";
+        $this->version = "1.0.1";
         $this->ps_versions_compliancy = array("min" => "1.7", "max" => _PS_VERSION_);
         $this->author = "CloudSwipe";
         $this->controllers = array("invoice", "receipt", "slurp");
@@ -88,8 +88,8 @@ class CloudSwipePayments extends PaymentModule
     {
         $output = null;
 
-        if (Tools::isSubmit("submit".$this->name)) {
-            $secretKey = (string) Tools::getValue("CLOUDSWIPE_SECRET_KEY");
+        if (Tools::isSubmit("submit_cloudswipe")) {
+            $secretKey = (string) Tools::getValue("cloudswipe_secret_key");
             if (!$secretKey
                 || empty($secretKey)
                 || !Validate::isGenericName($secretKey)) {
@@ -101,77 +101,10 @@ class CloudSwipePayments extends PaymentModule
                 );
             }
         }
-        return $output.$this->displayForm();
-    }
 
-    public function displayForm()
-    {
-        // Get default language
-        $default_lang = (int) Configuration::get("PS_LANG_DEFAULT");
+        $this->smarty->assign(
+            "cloudswipe_secret_key", Configuration::get("CLOUDSWIPE_SECRET_KEY"));
 
-        // Init Fields form array
-        $fields_form = array();
-        $fields_form[0]["form"] = array(
-            "legend" => array(
-                "title" => $this->l("Settings"),
-            ),
-            "input" => array(
-                array(
-                    "type" => "text",
-                    "label" => $this->l("Secret Key"),
-                    "name" => "CLOUDSWIPE_SECRET_KEY",
-                    "size" => 20,
-                    "required" => true
-                )
-            ),
-            "submit" => array(
-                "title" => $this->l("Save"),
-                "class" => "btn btn-default pull-right"
-            )
-        );
-
-        $helper = new HelperForm();
-
-        // Module, token and currentIndex
-        $helper->module = $this;
-        $helper->name_controller = $this->name;
-        $helper->token = Tools::getAdminTokenLite("AdminModules");
-        $helper->currentIndex =
-            AdminController::$currentIndex."&configure=".$this->name;
-
-        // Language
-        $helper->default_form_language = $default_lang;
-        $helper->allow_employee_form_lang = $default_lang;
-
-        // Title and toolbar
-        $helper->title = $this->displayName;
-
-        // false -> remove toolbar
-        $helper->show_toolbar = true;
-
-        // yes - > Toolbar is always visible on the top of the screen.
-        $helper->toolbar_scroll = true;
-
-        $helper->submit_action = "submit".$this->name;
-        $helper->toolbar_btn = array(
-            "save" =>
-            array(
-                "desc" => $this->l("Save"),
-                "href" => AdminController::$currentIndex."&configure=".
-                    $this->name."&save".$this->name.
-                "&token=".Tools::getAdminTokenLite("AdminModules"),
-                ),
-                "back" => array(
-                    "href" => AdminController::$currentIndex."&token=".
-                        Tools::getAdminTokenLite("AdminModules"),
-                    "desc" => $this->l("Back to list")
-                )
-            );
-
-        // Load current value
-        $helper->fields_value["CLOUDSWIPE_SECRET_KEY"] =
-            Configuration::get("CLOUDSWIPE_SECRET_KEY");
-
-        return $helper->generateForm($fields_form);
+        return $this->display(__FILE__, "views/templates/hook/settings.tpl");
     }
 }

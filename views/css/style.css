@@ -1,0 +1,49 @@
+.cloudswipe-header h1 {
+  margin-top: 0;
+}
+
+.cloudswipe-header .cloudswipe-logo {
+  height: 60px;
+}
+
+.cloudswipe-header .cloudswipe-sign-up {
+  margin-top: 15px;
+}
+
+.cloudswipe-big-features {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.cloudswipe-big-features i {
+  color: #2e485c;
+}
+
+#content.bootstrap .cloudswipe-big-features .row {
+  margin: 10px 0 30px 0;
+}
+
+#content.bootstrap .cloudswipe-big-feature h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0;
+  color: #2e485c;
+}
+
+#content.bootstrap .cloudswipe-pitch-sign-up h2 {
+  margin-bottom: 15px;
+}
+
+#content.bootstrap .cloudswipe-pitch {
+  margin-bottom: 10px;
+}
+
+#content.bootstrap .cloudswipe-features {
+  margin-bottom: 15px;
+}
+
+#content.bootstrap .cloudswipe-gateways,
+#content.bootstrap .cloudswipe-gateways h3,
+#content.bootstrap .cloudswipe-gateways i {
+  color: green;
+}

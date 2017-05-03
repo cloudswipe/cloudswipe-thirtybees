@@ -102,8 +102,7 @@ class CloudSwipePayments extends PaymentModule
             }
         }
 
-        $this->smarty->assign(
-            "cloudswipe_secret_key", Configuration::get("CLOUDSWIPE_SECRET_KEY"));
+        $this->smarty->assign("cloudswipe_secret_key", Configuration::get("CLOUDSWIPE_SECRET_KEY"));
 
         return $this->display(__FILE__, "views/templates/hook/settings.tpl");
     }

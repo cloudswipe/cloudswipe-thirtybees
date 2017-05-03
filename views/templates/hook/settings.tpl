@@ -32,7 +32,7 @@
 <div class="row cloudswipe-header">
   <div class="col-md-2">
     <h1>
-      <img src="{$module_dir|escape}views/img/cloudswipe-logo.png"
+      <img src="{$module_dir}views/img/cloudswipe-logo.png"
           class="cloudswipe-logo" />
     </h1>
   </div>
@@ -151,7 +151,7 @@
               id="cloudswipe_secret_key"
               name="cloudswipe_secret_key"
               class="form-control"
-              value="{$cloudswipe_secret_key|escape:'htmlall':'UTF-8'}" />
+              value="{$cloudswipe_secret_key}" />
       </div>
     </div>
     <input type="submit" value="Save Settings" name="submit_cloudswipe"

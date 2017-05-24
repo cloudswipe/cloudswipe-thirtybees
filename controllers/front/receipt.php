@@ -47,9 +47,7 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
             $invoice =
                 CloudSwipeInvoice::find(Tools::getValue("invoice_id"));
 
-            if ($invoice->attributes["metadata"]["order_id"]) {
-                die("A PrestaShop order has already been created for this invoice.");
-            }
+            $this->validateInvoice($invoice);
 
             $this->module->validateOrder(
                 (int)$this->context->cart->id,
@@ -112,6 +110,21 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
             }
 
             die($e->getMessage());
+        }
+    }
+
+    private function validateInvoice($invoice)
+    {
+        if ($invoice->attributes["metadata"]["cart_id"] != $this->context->cart->id) {
+            die("The current shopping cart does not match this order.");
+        }
+
+        if (!$invoice->attributes["paid"]) {
+            die("This order has not yet had a successful payment made for it.");
+        }
+
+        if ($invoice->attributes["metadata"]["order_id"]) {
+            die("A PrestaShop order has already been created for this invoice.");
         }
     }
 }

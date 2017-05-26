@@ -1,5 +1,4 @@
-<?php
-/**
+{**
 * The MIT License (MIT)
 *
 * Copyright (c) 2017 CloudSwipe
@@ -22,25 +21,18 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 *
-* @author    Joey Beninghove
+* @author Joey Beninghove
 * @copyright 2017 CloudSwipe
-* @license   https://opensource.org/licenses/MIT MIT
-*/
+* @license https://opensource.org/licenses/MIT MIT
+*}
 
-class CloudSwipePaymentsSlurpModuleFrontController extends ModuleFrontController
-{
-    public function initContent()
-    {
-        parent::initContent();
-
-        if (defined('_TB_VERSION_')) {
-            $this->context->smarty->assign(array(
-                'status' => 'ok',
-            ));
-
-            $this->setTemplate(_PS_MODULE_DIR_.'cloudswipepayment/views/templates/front/confirmation.tpl');
-        } else {
-            $this->setTemplate("module:cloudswipepayments/views/templates/front/slurp.tpl");
-        }
-    }
-}
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <p class="payment_module" id="cloudswipe_payment_button">
+            <a id="cloudswipe_payment_link" href="{$cloudswipe_payment_page|escape:'htmlall':'UTf-8'}" title="{l s='Pay by Credit Card' mod='cloudswipepayments'}">
+                {*<img src="{$module_dir|escape:'htmlall':'UTF-8'}/views/img/creditcardlogos.jpg" height="64px" width="auto" alt="{l s='Credit cards' mod='cloudswipepayments'}"/>*}
+                {l s='Pay by Credit Card' mod='cloudswipepayments'}
+            </a>
+        </p>
+    </div>
+</div>

@@ -40,6 +40,7 @@ class CloudSwipeLineTotals
     {
         $lineTotals = new self();
 
+        /** @var Cart $psCart */
         $psSummary = $psCart->getSummaryDetails();
         $psCurrency = Currency::getCurrencyInstance((int)$psCart->id_currency);
 

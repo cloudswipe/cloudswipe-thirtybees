@@ -68,6 +68,12 @@ class CloudSwipeHttp
 
     public function request($method, $url, $options=[])
     {
+        if (defined('_TB_VERSION_')) {
+            $request = $this->client->request($method, $url, $options);
+
+            return $request;
+        }
+
         $request = $this->client->createRequest($method, $url, $options);
 
         return $this->client->send($request);

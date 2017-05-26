@@ -72,7 +72,6 @@ class CloudSwipeLineItems
             $row[] = "N/A";
         }
 
-        $row[] = $psProduct["attributes_small"];
         $row[] = Tools::displayPrice($psProduct["price"], $psCurrency);
         $row[] = $psProduct["cart_quantity"];
         $row[] = Tools::displayPrice($psProduct["total"], $psCurrency);

@@ -38,7 +38,7 @@ class CloudSwipePaymentsSlurpModuleFrontController extends ModuleFrontController
                 'status' => 'ok',
             ));
 
-            $this->setTemplate(_PS_MODULE_DIR_.'cloudswipepayment/views/templates/front/confirmation.tpl');
+            $this->setTemplate('slurp.tpl');
         } else {
             $this->setTemplate("module:cloudswipepayments/views/templates/front/slurp.tpl");
         }

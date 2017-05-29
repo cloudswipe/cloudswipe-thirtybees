@@ -1,5 +1,4 @@
-{extends file='layouts/layout-full-width.tpl'}
-/**
+{**
 * The MIT License (MIT)
 * 
 * Copyright (c) 2017 CloudSwipe
@@ -25,8 +24,8 @@
 * @author Joey Beninghove
 * @copyright 2017 CloudSwipe
 * @license https://opensource.org/licenses/MIT MIT
-*/
+*}
 
 {block name='content_wrapper'}
-  <div id="content-wrapper">{block name='content'}{literal}{{cs-payment-form}}{/literal}{/block}</div>
+  <div id="content-wrapper cloudswipe-wrapper">{block name='content'}{literal}{{cs-payment-form}}{/literal}{/block}</div>
 {/block}

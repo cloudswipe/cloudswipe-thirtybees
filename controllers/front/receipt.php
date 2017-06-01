@@ -124,7 +124,7 @@ class CloudSwipePaymentsReceiptModuleFrontController extends ModuleFrontControll
         }
 
         if ($invoice->attributes["metadata"]["order_id"]) {
-            die("A Thirty Bees order has already been created for this invoice.");
+            die("A thirty bees order has already been created for this invoice.");
         }
     }
 }

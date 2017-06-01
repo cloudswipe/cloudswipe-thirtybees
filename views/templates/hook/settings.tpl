@@ -76,7 +76,7 @@
         <i class="fa fa-code fa-4x"></i>
         <h3>Complete Customization</h3>
         <h4 class="col-md-10 col-md-offset-1">
-          Your hosted payment page is skinned with your actual Thirty Bees theme
+          Your hosted payment page is skinned with your actual thirty bees theme
         </h4>
       </div>
       <div class="col-md-4 cloudswipe-big-feature">
@@ -104,9 +104,9 @@
       <div class="col-md-12">
         <p>
           <strong>CloudSwipe</strong> provides a secure, PCI compliant hosted payment page without
-          having to sacrifice the hard work you put into the design of your Thirty Bees
+          having to sacrifice the hard work you put into the design of your thirty bees
           store.  With our <strong>web page cloning technology</strong>, we can make your payment page
-          look exactly like the rest of your Thirty Bees site with the click of a
+          look exactly like the rest of your thirty bees site with the click of a
           button.
         </p>
       </div>

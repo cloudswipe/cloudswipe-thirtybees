@@ -29,9 +29,9 @@
 <div class="row">
     <div class="col-xs-12 col-md-12">
         <p class="payment_module" id="cloudswipe_payment_button">
-            <a id="cloudswipe_payment_link" href="{$cloudswipe_payment_page|escape:'htmlall':'UTf-8'}" title="{l s='Pay by Credit Card' mod='cloudswipepayments'}">
-                {*<img src="{$module_dir|escape:'htmlall':'UTF-8'}/views/img/creditcardlogos.jpg" height="64px" width="auto" alt="{l s='Credit cards' mod='cloudswipepayments'}"/>*}
-                {l s='Pay by Credit Card' mod='cloudswipepayments'}
+            <a id="cloudswipe_payment_link" href="{$cloudswipe_payment_page|escape:'htmlall':'UTf-8'}" title="{l s='Pay by Credit Card' mod='cloudswipe'}">
+                {*<img src="{$module_dir|escape:'htmlall':'UTF-8'}/views/img/creditcardlogos.jpg" height="64px" width="auto" alt="{l s='Credit cards' mod='cloudswipe'}"/>*}
+                {l s='Pay by Credit Card' mod='cloudswipe'}
             </a>
         </p>
     </div>

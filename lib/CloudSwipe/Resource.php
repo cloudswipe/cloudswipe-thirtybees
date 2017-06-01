@@ -37,7 +37,7 @@ class CloudSwipeResource
 
     public function __construct($type)
     {
-        $this->baseUrl = CloudSwipe::url();
+        $this->baseUrl = CloudSwipeEnvironment::apiUrl();
         $this->type = $type;
     }
 

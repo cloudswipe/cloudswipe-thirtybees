@@ -83,7 +83,7 @@ class CloudSwipeHttp
     {
         $class = get_class($resource);
         $options = array(
-            "auth" => array(CloudSwipe::$secretKey, ""),
+            "auth" => array(CloudSwipeSecretKey::get(), ""),
             "headers" => array("Accept" => "application/vnd.api+json")
         );
 

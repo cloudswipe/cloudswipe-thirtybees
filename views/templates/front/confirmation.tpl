@@ -26,20 +26,21 @@
 * @license https://opensource.org/licenses/MIT MIT
 *}
 {if isset($status) && ($status == 'ok')}
-    <h3>{l s='Your order on %s is complete.' sprintf=[$shop_name] mod='cloudswipepayments'}</h3>
+    <h3>{l s='Your order on %s is complete.' sprintf=[$shop_name] mod='cloudswipe'}</h3>
     <p>
-        <br/>- {l s='Amount' mod='cloudswipepayments'} : <span class="price"><strong>{$total|escape:'htmlall':'UTF-8'}</strong></span>
-        <br/>- {l s='Reference' mod='cloudswipepayments'} : <span class="reference"><strong>{$reference|escape:'html':'UTF-8'}</strong></span>
-        <br/><br/>{l s='An email has been sent with this information.' mod='cloudswipepayments'}
-        <br/><br/>{l s='If you have questions, comments or concerns, please contact our' mod='cloudswipepayments'} <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='expert customer support team.' mod='cloudswipepayments'}</a>
+        <br/>- {l s='Amount' mod='cloudswipe'} : <span class="price"><strong>{$total|escape:'htmlall':'UTF-8'}</strong></span>
+        <br/>- {l s='Reference' mod='cloudswipe'} : <span class="reference"><strong>{$reference|escape:'html':'UTF-8'}</strong></span>
+        <br/><br/>{l s='An email has been sent with this information.' mod='cloudswipe'}
+        <br/><br/>{l s='If you have questions, comments or concerns, please contact our' mod='cloudswipe'} <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='expert customer support team.' mod='cloudswipe'}</a>
     </p>
 {else}
-    <h3>{l s='Your order on %s has not been accepted.' sprintf=[$shop_name] mod='cloudswipepayments'}</h3>
+    <h3>{l s='Your order on %s has not been accepted.' sprintf=[$shop_name] mod='cloudswipe'}</h3>
     <p>
     <p>
-        <br/>- {l s='Reference' mod='cloudswipepayments'} <span class="reference"> <strong>{$reference|escape:'html':'UTF-8'}</strong></span>
-        <br/><br/>{l s='Please, try to order again.' mod='cloudswipepayments'}
-        <br/><br/>{l s='If you have questions, comments or concerns, please contact our' mod='cloudswipepayments'} <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='expert customer support team.' mod='cloudswipepayments'}</a>
+        <br/>- {l s='Reference' mod='cloudswipe'} <span class="reference"> <strong>{$reference|escape:'html':'UTF-8'}</strong></span>
+        <br/><br/>{l s='Please, try to order again.' mod='cloudswipe'}
+        <br/><br/>{l s='If you have questions, comments or concerns, please
+contact our' mod='cloudswipe'} <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='expert customer support team.' mod='cloudswipe'}</a>
     </p>
 {/if}
 <hr/>

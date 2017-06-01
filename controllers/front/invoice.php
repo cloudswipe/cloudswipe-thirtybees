@@ -27,7 +27,7 @@
 * @license   https://opensource.org/licenses/MIT MIT
 */
 
-class CloudSwipePaymentsInvoiceModuleFrontController extends ModuleFrontController
+class CloudSwipeInvoiceModuleFrontController extends ModuleFrontController
 {
     public function postProcess()
     {

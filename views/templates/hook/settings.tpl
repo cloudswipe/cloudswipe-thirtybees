@@ -143,7 +143,7 @@
     </div>
   </div>
 
-  <form action="{$request_uri}" method="post">
+  <form action="{$smarty.server.REQUEST_URI}" method="post">
     <div class="row">
       <div class="form-group col-md-4">
         <label for="cloudswipe_secret_key" class="control-label">Secret Key</label>

@@ -27,17 +27,19 @@
 * @license   https://opensource.org/licenses/MIT MIT
 */
 
-require_once(dirname(__FILE__)."/Environment.php");
-require_once(dirname(__FILE__)."/SecretKey.php");
-require_once(dirname(__FILE__)."/Resource.php");
-require_once(dirname(__FILE__)."/Address.php");
-require_once(dirname(__FILE__)."/Customer.php");
-require_once(dirname(__FILE__)."/Http.php");
-require_once(dirname(__FILE__)."/Invoice.php");
-require_once(dirname(__FILE__)."/LineItems.php");
-require_once(dirname(__FILE__)."/LineTotals.php");
-require_once(dirname(__FILE__)."/MetaData.php");
-require_once(dirname(__FILE__)."/Name.php");
-require_once(dirname(__FILE__)."/Url.php");
-require_once(dirname(__FILE__)."/Payment.php");
-require_once(dirname(__FILE__)."/CreditCard.php");
+class CloudSwipeCreditCard extends CloudSwipeResource
+{
+    public function __construct()
+    {
+        parent::__construct("credit_cards");
+    }
+
+    public static function load($json)
+    {
+        $credit_card = new self();
+        $credit_card->id = $json["id"];
+        $credit_card->attributes = $json["attributes"];
+
+        return $credit_card;
+    }
+}

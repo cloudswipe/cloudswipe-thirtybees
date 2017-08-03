@@ -27,17 +27,39 @@
 * @license   https://opensource.org/licenses/MIT MIT
 */
 
-require_once(dirname(__FILE__)."/Environment.php");
-require_once(dirname(__FILE__)."/SecretKey.php");
-require_once(dirname(__FILE__)."/Resource.php");
-require_once(dirname(__FILE__)."/Address.php");
-require_once(dirname(__FILE__)."/Customer.php");
-require_once(dirname(__FILE__)."/Http.php");
-require_once(dirname(__FILE__)."/Invoice.php");
-require_once(dirname(__FILE__)."/LineItems.php");
-require_once(dirname(__FILE__)."/LineTotals.php");
-require_once(dirname(__FILE__)."/MetaData.php");
-require_once(dirname(__FILE__)."/Name.php");
-require_once(dirname(__FILE__)."/Url.php");
-require_once(dirname(__FILE__)."/Payment.php");
-require_once(dirname(__FILE__)."/CreditCard.php");
+class CloudSwipePayment extends CloudSwipeResource
+{
+    public $creditCard;
+
+    public function __construct()
+    {
+        parent::__construct("payments");
+    }
+
+    public static function load($json)
+    {
+        $payment = new self();
+        $payment->id = $json["id"];
+        $payment->attributes = $json["attributes"];
+        $payment->creditCard = self::loadCreditCard($json);
+
+        return $payment;
+    }
+
+    private static function loadCreditCard($json)
+    {
+        if (!$json["included"]) {
+            return;
+        }
+
+        $credit_card_json = array_filter($json["included"], function($included) {
+            if ($included["type"] == "credit_cards") {
+                return $included;
+            }
+        });
+
+        if ($credit_card_json) {
+            return CloudSwipeCreditCard::load(array_values($credit_card_json)[0]);
+        }
+    }
+}

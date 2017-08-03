@@ -37,7 +37,7 @@ class CloudSwipe extends PaymentModule
     {
         $this->name = "cloudswipe";
         $this->tab = "payments_gateways";
-        $this->version = "1.0.1";
+        $this->version = "1.0.2";
         $this->ps_versions_compliancy = array("min" => "1.6", "max" => _PS_VERSION_);
         $this->author = "CloudSwipe";
         $this->controllers = array("invoice", "receipt", "slurp");
